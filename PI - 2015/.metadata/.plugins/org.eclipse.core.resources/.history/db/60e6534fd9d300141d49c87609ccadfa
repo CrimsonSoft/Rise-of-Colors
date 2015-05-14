@@ -1,0 +1,29 @@
+package com.PIGame.Aventure.entidades.mob;
+
+import com.PIGame.Aventure.input.KeyBoard;
+
+public class Jogador extends Mob {
+
+	private KeyBoard input;
+	
+	public Jogador(KeyBoard input){
+		this.input = input;
+	}
+	
+	public Jogador(int localX, int localY, KeyBoard input){
+		this.posicaoX = localX;
+		this.posicaoY = localY;
+		this.input = input;
+	}
+	
+	public void updated(){
+		if(input.cima) posicaoY--;
+		if(input.baixo) posicaoY++;
+		if(input.direita) posicaoX++;
+		if(input.esquerda) posicaoX--;
+	}
+	public void render(){
+		
+	}
+	
+}

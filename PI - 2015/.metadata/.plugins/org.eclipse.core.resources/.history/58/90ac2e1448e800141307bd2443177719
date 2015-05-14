@@ -1,0 +1,54 @@
+package com.PIGame.Aventure.graficos;
+
+public class Sprite {
+
+	public final int TAMANHO;
+	private int larguraX, alturaY;
+	public int[] pixels;
+	private SpriteSheet lamina;
+	
+	public static Sprite terra = new Sprite(16, 0, 0, SpriteSheet.tiles);
+	public static Sprite vazio = new Sprite(16, 0);
+	
+	
+	
+	public static Sprite player_deCosta = new Sprite(32, 0, 5, SpriteSheet.tiles);
+	public static Sprite player_deFrente = new Sprite(32, 2, 5, SpriteSheet.tiles);
+	public static Sprite player_DireitaEsquerda = new Sprite(32, 1, 5, SpriteSheet.tiles);
+
+	public Sprite(int tamanho, int x, int y, SpriteSheet folha) {
+
+		TAMANHO = tamanho;
+		pixels = new int[TAMANHO * TAMANHO];
+		this.larguraX = x * tamanho;
+		this.alturaY = y * tamanho;
+		this.lamina = folha;
+		Carregar();
+
+	}
+	
+	public Sprite(int tamanho, int cor){
+		TAMANHO = tamanho;
+		pixels = new int[TAMANHO*TAMANHO];
+		setCor(cor);
+	}
+	
+	private void setCor(int cor){
+		for(int i = 0 ;i < TAMANHO*TAMANHO ;i++){
+			pixels[i] = cor;
+		}
+	}
+
+	private void Carregar() {
+
+		for (int y = 0; y < TAMANHO; y++) {
+			for (int x = 0; x < TAMANHO; x++) {
+
+				pixels[x + y * TAMANHO] = lamina.pixels[(x + this.larguraX) + (y + this.alturaY) * lamina.TAMANHO];
+
+			}
+		}
+
+	}
+
+}

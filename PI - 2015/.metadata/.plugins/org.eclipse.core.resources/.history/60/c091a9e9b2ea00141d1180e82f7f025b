@@ -1,0 +1,49 @@
+package com.PIGame.Aventure.level;
+
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import com.PIGame.Aventure.level.tile.Tile;
+
+public class CarregandoLevel extends Level{
+
+	
+	private Tile[] tiles;
+	private int[] levelPixels;
+	
+	public CarregandoLevel(String path){
+		super(path);
+	}
+	
+	//floor01 = 0x707070
+	//floor02 = 0xaaaaaa
+	//floor03 = 0xd6d6d6
+	protected void criarLevelRandomico() {
+		for(int i = 0; i < levelPixels.length; i++){
+			if(levelPixels[i] == 0x707070) tiles[i] = Tile.floorSprite01;
+			if(levelPixels[i] == 0xaaaaaa) tiles[i] = Tile.floorSprite02;
+			if(levelPixels[i] == 0xd6d6d6) tiles[i] = Tile.floorSprite03;
+		}
+		
+		
+	}
+	
+	protected void CarregarLevel(String path) {
+		try{
+			BufferedImage carregarImagem = ImageIO.read(CarregandoLevel.class.getResource(path));
+			int largura = carregarImagem.getWidth();
+			int altura = carregarImagem.getHeight();
+			tiles = new Tile[largura*altura];
+			carregarImagem.getRGB(0, 0, largura, altura, levelPixels, 0, largura);
+		}catch(IOException e){
+			e.printStackTrace();
+			System.out.println("Erro! Não foi possível carregar o arquivo de mapa!");
+		}
+	}
+	
+	
+	
+	
+}

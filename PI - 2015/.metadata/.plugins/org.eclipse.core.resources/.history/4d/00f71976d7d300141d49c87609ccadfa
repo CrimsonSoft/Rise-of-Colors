@@ -1,0 +1,21 @@
+package com.PIGame.Aventure.entidades.mob;
+
+public class Jogador extends Mob {
+
+	public Jogador(){
+		
+	}
+	
+	public Jogador(int localX, int localY){
+		this.posicaoX = localX;
+		this.posicaoY = localY;
+	}
+	
+	public void updated(){
+		
+	}
+	public void render(){
+		
+	}
+	
+}

@@ -1,0 +1,38 @@
+package com.PIGame.Aventure.entidades.mob;
+
+import com.PIGame.Aventure.graficos.Screen;
+import com.PIGame.Aventure.graficos.Sprite;
+import com.PIGame.Aventure.input.KeyBoard;
+
+public class Jogador extends Mob {
+
+	private KeyBoard input;
+	
+	public Jogador(KeyBoard input){
+		this.input = input;
+	}
+	
+	public Jogador(int localX, int localY, KeyBoard input){
+		this.posicaoX = localX;
+		this.posicaoY = localY;
+		this.input = input;
+	}
+	
+	public void updated(){
+		int moverX = 0, moverY = 0;
+		//As duas varias acima irao marca se o player moveu, passando os parametros 1 e -1 para o metodo mover na classe Mob
+		if(input.cima) moverY--;
+		if(input.baixo) moverY++;
+		if(input.direita) moverX++;
+		if(input.esquerda) moverX--;
+		
+		if(moverX != 0 || moverY != 0) mover(moverX, moverY);
+	}
+	public void render(Screen tela){
+		int calcX = posicaoX - 16;
+		int calcY = posicaoY - 16;
+		tela.renderJogador(calcX, calcY, Sprite.player);
+		
+	}
+	
+}

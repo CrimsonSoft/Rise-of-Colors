@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PI Game/src/com/PIGame/Aventure/level/tile/TileGrama.java&apos; to &apos;TileTerra.java&apos;" description="Rename resource &apos;TileGrama.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/PIGame/Aventure/level/tile/TileGrama.java" name="TileTerra.java" stamp="1426604606162" updateReferences="true"/>
+</session>
