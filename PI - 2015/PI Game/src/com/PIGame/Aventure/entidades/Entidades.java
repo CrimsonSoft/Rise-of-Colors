@@ -4,10 +4,12 @@ import java.util.Random;
 
 import com.PIGame.Aventure.graficos.Screen;
 import com.PIGame.Aventure.level.Level;
+import com.PIGame.core.Quadrado;
 
 public abstract class Entidades {
 
 	public int posicaoX, posicaoY;
+	public Quadrado corpo;
 	public boolean remover = false;
 	protected Level level;
 	protected final Random random = new Random();

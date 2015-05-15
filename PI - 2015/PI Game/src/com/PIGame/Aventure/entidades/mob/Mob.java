@@ -1,5 +1,7 @@
 package com.PIGame.Aventure.entidades.mob;
 
+
+
 import com.PIGame.Aventure.entidades.Entidades;
 import com.PIGame.Aventure.graficos.Sprite;
 

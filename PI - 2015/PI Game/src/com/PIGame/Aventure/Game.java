@@ -1,5 +1,4 @@
 package com.PIGame.Aventure;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,17 +7,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-
 import javax.swing.JFrame;
-import javax.xml.crypto.dsig.spec.XSLTTransformParameterSpec;
-
 import com.PIGame.Aventure.entidades.mob.Jogador;
 import com.PIGame.Aventure.graficos.Screen;
 import com.PIGame.Aventure.input.KeyBoard;
 import com.PIGame.Aventure.level.CarregandoLevel;
 import com.PIGame.Aventure.level.Level;
-import com.PIGame.Aventure.level.RandomLevel;
-
 public class Game extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -105,7 +99,9 @@ public class Game extends Canvas implements Runnable {
 					quadro.setTitle(titulo + "|| FPS:"+ targetTime);
 					update();
 					render();
-					Thread.sleep( (waitTime/3));//é dividido por 3, por causa do Render e Draw que estão juntos. 
+					//é dividido por 3, por causa do Render e Draw que estão juntos e
+					//o game loop ser constituido por dois while.
+					Thread.sleep( (waitTime/3)); 
 					}
 				
 			} catch (Exception e) {
@@ -115,24 +111,19 @@ public class Game extends Canvas implements Runnable {
 				if (frameCount == maxFrameCount) {
 					//para diminuir o tamanho do valor para calculo diminuir o tamanho do long
 					averageFPS = 1000.0 / ((totalTime / frameCount) / 100000);
-					frameCount =0;
+					frameCount = 0;
 					totalTime =0;
-				System.out.println(averageFPS);
-			
+	
 				}
 				
 			}
-			
-			System.out.println(averageFPS);
+
 		}
 
 		
 
 	}
 
-	//
-
-	
 
 	public void update() {
 
