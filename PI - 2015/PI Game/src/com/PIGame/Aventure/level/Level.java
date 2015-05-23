@@ -62,7 +62,6 @@ public class Level {
 		if(tiles[posicaoX+posicaoY*largura] == 0xff707070) return Tile.floorSprite01;
 		if(tiles[posicaoX+posicaoY*largura] == 0xffaaaaaa) return Tile.floorSprite02;
 		if(tiles[posicaoX+posicaoY*largura] == 0xffd6d6d6) return Tile.floorSprite03;
-		if(tiles[posicaoX+posicaoY*largura] == 0xffffffff) return Tile.arvore;
 		return Tile.vazio;
 	}
 }

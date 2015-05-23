@@ -6,6 +6,7 @@ import com.PIGame.Aventure.graficos.Screen;
 import com.PIGame.Aventure.graficos.Sprite;
 import com.PIGame.Aventure.input.KeyBoard;
 
+
 public class Jogador extends Mob {
 
 	private KeyBoard input;
@@ -13,7 +14,7 @@ public class Jogador extends Mob {
 	private int animacao = 0;
 	private boolean andando = false;
 	private Rectangle2D aux;
-	public int value = 0;
+	
 
 	public Jogador(KeyBoard input) {
 		this.input = input;
@@ -25,20 +26,21 @@ public class Jogador extends Mob {
 		this.posicaoX = localX;
 		this.posicaoY = localY;
 		this.input = input;
-
+		
 		aux = null;
-		try {
-			aux.setRect((localX - 16), (localY - 16), (localX + 16),
-					(localY + 16));
-			setCorpo(aux);
-		} catch (Exception e) {
+		try{
+		aux.setRect((localX - 16), (localY - 16), (localX + 16), (localY + 16));
+		corpo.setDele(aux);
+		}
+		catch(Exception e)
+		{
 			System.out.println(e + "   :Sem informação sobre o  jogador");
 		}
 
 	}
 
 	public void updated() {
-		int moverX = 0, value = 0, moverY = 0;
+		int moverX = 0, moverY = 0;
 		// As duas varias acima irao marca se o player moveu, passando os
 		// parametros 1 e -1 para o metodo mover na classe Mob
 
@@ -48,7 +50,6 @@ public class Jogador extends Mob {
 			animacao = 0;
 		if (input.cima)
 			moverY--;
-
 		if (input.baixo)
 			moverY++;
 		if (input.direita)
