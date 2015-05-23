@@ -1,9 +1,7 @@
 package com.PIGame;
 
 
-import java.awt.geom.Rectangle2D;
-
-public interface core {
+public abstract interface core {
 
 	public class Colisao {
 	}
@@ -12,15 +10,80 @@ public interface core {
 	}
 
 	public class Quadrado {
-		Rectangle2D dele;
-		public Rectangle2D getDele() {
-			return dele;
-		}
 
-		public void setDele(Rectangle2D dele) {
-			this.dele = dele;
-		}
+	    private int custoG = 0;
+	    private int custoH = 9999;
+	    private int x = 0;
+	    private int y = 0;
+	    private Quadrado pai = null;
+
+	    public Quadrado(int x, int y) {
+	        this.x = x;
+	        this.y = y;
+	    }
+
+	    public int getCustoF() {
+	        return custoG + custoH;
+	    }
+
+	    public int getCustoG() {
+	        return custoG;
+	    }
+
+	    public void setCustoG(int custoG) {
+	        this.custoG = custoG;
+	    }
+
+	    public int getCustoH() {
+	        return custoH;
+	    }
+
+	    public void setCustoH(int custoH) {
+	        this.custoH = custoH;
+	    }
+
+	    public int getX() {
+	        return x;
+	    }
+
+	    public void setPosicaoX(int x) {
+	        this.x = x;
+	    }
+
+	    public int getY() {
+	        return y;
+	    }
+
+	    public void setPosicaoY(int y) {
+	        this.y = y;
+	    }
+
+	    public Quadrado getPai() {
+	        return pai;
+	    }
+
+	    public void setPai(Quadrado pai) {
+	        this.pai = pai;
+	    }
+
+	    @Override
+	    public boolean equals(Object obj) {
+	        return (((Quadrado)obj).getX() == x && ((Quadrado)obj).getY()==y);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	        int hash = 7;
+	        hash = 97 * hash + this.x;
+	        hash = 97 * hash + this.y;
+	        return hash;
+	    }
+	    
+	    
+	}
+
+		
 
 
 	}
-}
+

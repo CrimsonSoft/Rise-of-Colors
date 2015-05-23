@@ -1,35 +1,46 @@
 package com.PIGame.Aventure.entidades;
 
+import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
 import com.PIGame.Aventure.graficos.Screen;
 import com.PIGame.Aventure.level.Level;
-import com.PIGame.core.Quadrado;
 
 public abstract class Entidades {
 
 	public int posicaoX, posicaoY;
-	public Quadrado corpo;
+	private Rectangle2D corpo;
 	public boolean remover = false;
 	protected Level level;
 	protected final Random random = new Random();
-	
-	public void updated(){
-		
+
+	public void updated() {
+
 	}
-	public void render(Screen tela){
-		
+
+	public void render(Screen tela) {
+
 	}
-	public void removendo(){
-		//remove do level,map,fase... etc;
+
+	public void removendo() {
+		// remove do level,map,fase... etc;
 		remover = true;
 	}
-	
-	public boolean removido(){
+
+	public boolean removido() {
 		return remover;
 	}
-	public void render(){
-		
+
+	public void render() {
+
 	}
-	
+
+	public Rectangle2D getCorpo() {
+		return corpo;
+	}
+
+	public void setCorpo(Rectangle2D corpo) {
+		this.corpo = corpo;
+	}
+
 }
